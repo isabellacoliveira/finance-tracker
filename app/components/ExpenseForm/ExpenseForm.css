@@ -1,0 +1,123 @@
+.expense-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 1024px) {
+  .expense-form {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.expense-form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.expense-form label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.expense-form input,
+.expense-form select {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: white;
+  color: #000000;
+}
+
+.expense-form input:focus,
+.expense-form select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.expense-form .currency-input {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  text-align: right;
+  letter-spacing: 0.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+.expense-form input[type="date"]:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.2);
+}
+
+.expense-form input[type="text"]:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.expense-form select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+.expense-form .form-date-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+}
+
+@media (min-width: 640px) {
+  .expense-form .form-date-group {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px) {
+  .expense-form .form-date-group {
+    align-items: end;
+  }
+}
+
+.expense-form .form-date-group > div {
+  flex: 1;
+}
+
+.expense-form button {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: black;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+}
+
+.expense-form button:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.5);
+}
+
+.expense-form button:focus {
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.3);
+  outline: none;
+}

@@ -1,0 +1,174 @@
+.expense-list {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  max-height: 32rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.expense-list-header {
+  background: linear-gradient(90deg, #f9fafb 0%, #f3f4f6 100%);
+  padding: 1.5rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.expense-list-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 0.25rem 0;
+}
+
+.expense-list-header p {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.expense-list-empty {
+  padding: 3rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.expense-list-empty div {
+  font-size: 3.75rem;
+  margin-bottom: 1rem;
+}
+
+.expense-list-items {
+  flex: 1;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #f3f4f6;
+}
+
+.expense-list-item {
+  padding: 1.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.expense-list-item:hover {
+  background-color: #f9fafb;
+}
+
+.expense-list-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .expense-list-item-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.expense-list-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.expense-list-category-badge {
+  display: inline-flex;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-right: 0.75rem;
+}
+
+.category-badge-alimentacao {
+  background: #fed7aa;
+  color: #92400e;
+}
+
+.category-badge-transporte {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.category-badge-lazer {
+  background: #e9d5ff;
+  color: #7c3aed;
+}
+
+.category-badge-saude {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.category-badge-moradia {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.category-badge-outros {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.expense-list-title {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #111827;
+  margin: 0 0 0.25rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.expense-list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.expense-list-amount {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.expense-list-amount-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #dc2626;
+}
+
+.expense-list-delete {
+  padding: 0.5rem;
+  color: #9ca3af;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expense-list-delete:hover {
+  color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.expense-list-delete svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.expense-list-divider {
+  border-bottom: 1px solid #e5e7eb;
+}

@@ -1,0 +1,132 @@
+.expense-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.expense-container-header {
+  text-align: center;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.expense-container-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.expense-container-total-card {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: black;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.4);
+  margin: 0 auto;
+  max-width: 20rem;
+  text-align: center;
+}
+
+.expense-container-total-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.expense-container-total-label {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.expense-container-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .expense-container-grid {
+    grid-template-columns: 1fr 300px;
+  }
+}
+
+.expense-container-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.expense-container-summary-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.expense-container-summary-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.expense-container-summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.expense-container-summary-item:last-child {
+  border-bottom: none;
+}
+
+.expense-container-summary-label {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.expense-container-summary-value {
+  font-weight: 700;
+  color: #dc2626;
+}
+
+.expense-container-tips-card {
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.1);
+  border: 1px solid #e0e7ff;
+}
+
+.expense-container-tips-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.expense-container-tips-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.expense-container-tips-list li {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.loading {
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+}
