@@ -1,12 +1,44 @@
-import { Expense } from '@/app/types/expense';
+// ✅ Demonstração: Server Component com async data fetching
 import './ExpenseList.css';
 
-interface Props {
-  expenses: Expense[];
-  onDelete?: (id: string) => void; // ✅ Optional: Server stateless + Client interativo
+export interface Expense {
+  id: string;
+  title: string;
+  amount: number;
+  category: string;
+  date: string;
 }
 
-// ✅ Server Component compatível com API demo
+// Simula fetch real de API (delay + possível erro)
+async function fetchExpensesWithDelay(): Promise<Expense[]> {
+  // ✅ Live demo: abra DevTools → Network → veja fetch server-side!
+  await new Promise(resolve => setTimeout(resolve, 1500));
+  
+  return [
+    {
+      id: '1',
+      title: '🍔 Supermercado Central',
+      amount: 156.80,
+      category: 'alimentacao',
+      date: '2024-10-15'
+    },
+    {
+      id: '2',
+      title: '🚗 Uber para o trabalho',
+      amount: 28.50,
+      category: 'transporte',
+      date: '2024-10-16'
+    },
+    {
+      id: '3',
+      title: '🎉 Cinema com amigos',
+      amount: 45.00,
+      category: 'lazer',
+      date: '2024-10-14'
+    }
+  ];
+}
+
 const formatCurrency = (value: number) => new Intl.NumberFormat("pt-BR", {
   style: "currency",
   currency: "BRL",
@@ -23,16 +55,11 @@ const categoryConfig = {
   outros: { emoji: "📦", color: "outros" },
 } as const;
 
-const categoryLabels = {
-  alimentacao: "Alimentação",
-  transporte: "Transporte",
-  lazer: "Lazer",
-  saude: "Saúde",
-  moradia: "Moradia",
-  outros: "Outros",
-};
-
-export function ExpenseList({ expenses, onDelete }: Props) {
+// ✅ ASYNC Server Component - fetch direto no servidor!
+export default async function ExpenseListServerFetch() {
+  const expenses = await fetchExpensesWithDelay();
+  
+  // ✅ Processamento pesado acontece server-side
   const sortedExpenses = [...expenses].sort((a, b) => 
     new Date(b.date).getTime() - new Date(a.date).getTime()
   );
@@ -40,14 +67,14 @@ export function ExpenseList({ expenses, onDelete }: Props) {
   return (
     <div className="expense-list">
       <div className="expense-list-header">
-        <h2>✅ Server Component - Lista de Gastos</h2>
-        <p>{expenses.length} gasto(s)</p>
+        <h2>⚡ Server Data Fetching</h2>
+        <p>{expenses.length} gastos carregados do servidor</p>
       </div>
       
       {expenses.length === 0 ? (
         <div className="expense-list-empty">
           <div>📭</div>
-          <p>Nenhum gasto cadastrado. Adicione o primeiro!</p>
+          <p>Aguardando dados...</p>
         </div>
       ) : (
         <ul className="expense-list-items">
@@ -66,26 +93,12 @@ export function ExpenseList({ expenses, onDelete }: Props) {
                     </div>
                     <div className="expense-list-meta">
                       <span>{formatDate(expense.date)}</span>
-                      <span>•</span>
-                      <span>{categoryLabels[expense.category as keyof typeof categoryLabels]}</span>
                     </div>
                   </div>
-                  <div className="expense-list-amount flex items-center gap-2">
+                  <div className="expense-list-amount">
                     <span className="expense-list-amount-value">
                       {formatCurrency(expense.amount)}
                     </span>
-                    {onDelete ? (
-                      <button 
-                        className="expense-list-delete text-red-500 hover:text-red-700 p-1 rounded transition-colors"
-                        onClick={() => onDelete(expense.id)}
-                        title="Excluir gasto"
-                        aria-label="Excluir"
-                      >
-                        🗑️
-                      </button>
-                    ) : (
-                      <span className="text-gray-400 text-xs">readonly</span>
-                    )}
                   </div>
                 </div>
               </li>
@@ -93,6 +106,15 @@ export function ExpenseList({ expenses, onDelete }: Props) {
           })}
         </ul>
       )}
+      
+      {/* ✅ Live demo badge */}
+      <div className="mt-8 p-4 bg-blue-50 border-2 border-dashed border-blue-200 rounded-xl">
+        <h3 className="font-bold text-blue-800 mb-2">🔍 DevTools Network:</h3>
+        <p className="text-sm text-blue-700">
+          Veja que <strong>SEM fetch no client!</strong><br/>
+          Dados vieram server-side → HTML pronto
+        </p>
+      </div>
     </div>
   );
 }
