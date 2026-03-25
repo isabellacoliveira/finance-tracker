@@ -1,0 +1,132 @@
+/* CSS para ExpenseContainerApi */
+.expense-container {
+  background: white;
+  border-radius: 2rem;
+  padding: 3rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.expense-container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.expense-container-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin: 0;
+}
+
+.expense-container-total-card {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 1.5rem 2.5rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+  min-width: 200px;
+}
+
+.expense-container-total-value {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1;
+}
+
+.expense-container-total-label {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.expense-container-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .expense-container-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.expense-container-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.expense-container-summary-card {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.expense-container-summary-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 1.5rem;
+}
+
+.expense-container-summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.expense-container-summary-label {
+  font-weight: 500;
+  color: #000000;
+}
+
+.expense-container-summary-value {
+  font-weight: 700;
+  color: #000000;
+}
+
+.expense-container-tips-card {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.expense-container-tips-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.expense-container-tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.expense-container-tips-list li {
+  padding: 0.75rem 0;
+  color: white;
+  font-weight: 500;
+}
+

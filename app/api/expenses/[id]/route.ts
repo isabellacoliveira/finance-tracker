@@ -5,9 +5,9 @@ let expenses: any[] = []; // Compartilha estado com /route.ts
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = params;
+  const { id } = await params;
   
   const index = expenses.findIndex(exp => exp.id === id);
   

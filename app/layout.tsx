@@ -19,12 +19,12 @@ export const metadata: Metadata = {
   }
 };
 
-const geistSans = GeistSans({
+const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = GeistMono({
+const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -49,7 +49,8 @@ export default function RootLayout({
                 <Link href="/" className="text-gray-700 hover:text-indigo-600 transition-colors">🏠 Home</Link>
                 <Link href="/expenses" className="text-gray-700 hover:text-indigo-600 transition-colors">📋 Gastos</Link>
                 <Link href="/server-fetch" className="text-gray-700 hover:text-indigo-600 transition-colors">⚡ Server Fetch</Link>
-                <Link href="/full-demo" className="text-gray-700 hover:text-indigo-600 transition-colors bg-indigo-100 px-4 py-2 rounded-full transition-all hover:bg-indigo-200">🎯 Demo Completo</Link>
+                <Link href="/container-pattern" className="text-gray-700 hover:text-emerald-600 transition-colors bg-emerald-100 px-4 py-2 rounded-full transition-all hover:bg-emerald-200 font-bold shadow-md">🧠 Container Pattern</Link>
+                <Link href="/full-demo" className="text-gray-700 hover:text-indigo-600 transition-colors bg-indigo-100 px-4 py-2 rounded-full transition-all hover:bg-indigo-200">Demo Completo</Link>
               </div>
             </div>
           </div>

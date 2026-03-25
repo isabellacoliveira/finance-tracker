@@ -1,5 +1,5 @@
 // ✅ Rota dedicada: /server-fetch
-import ExpenseListServerFetch from '../components/ExpenseListServerFetch';
+import ExpenseListServerFetch from '../components/ExpenseListServerFetch/ExpenseListServerFetch';
 
 export default function ServerFetchDemo() {
   return (
@@ -19,15 +19,15 @@ export default function ServerFetchDemo() {
                     <li>• <code>async function</code> no Server Component</li>
                     <li>• Dados no HTML inicial</li>
                     <li>• Zero JS no client pra dados</li>
-                    <li>• Loading UI automático (próximo step)</li>
+                    <li>• Loading UI automático</li>
                   </ul>
                 </div>
                 <div className="p-6 bg-gradient-to-r from-orange-400 to-red-500 text-white rounded-2xl">
                   <h3 className="font-bold text-xl mb-2">❌ React + useEffect</h3>
-                  <pre className="text-xs bg-black/20 p-3 rounded-lg font-mono">
-useEffect(() => {
-  fetch('/api').then(...)
-}, [])
+                  <pre className="text-xs bg-black/20 p-3 rounded-lg font-mono overflow-auto">
+{`useEffect(() => {
+  fetch('/api').then(data => setData(data));
+}, []);`}
                   </pre>
                 </div>
               </div>

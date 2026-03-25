@@ -1,5 +1,5 @@
 // ✅ Demonstração: Server Component com async data fetching
-import './ExpenseList.css';
+import '../ExpenseList/ExpenseList.css'; // ✅ Import correto do CSS irmão
 
 export interface Expense {
   id: string;
@@ -11,7 +11,6 @@ export interface Expense {
 
 // Simula fetch real de API (delay + possível erro)
 async function fetchExpensesWithDelay(): Promise<Expense[]> {
-  // ✅ Live demo: abra DevTools → Network → veja fetch server-side!
   await new Promise(resolve => setTimeout(resolve, 1500));
   
   return [
@@ -59,7 +58,6 @@ const categoryConfig = {
 export default async function ExpenseListServerFetch() {
   const expenses = await fetchExpensesWithDelay();
   
-  // ✅ Processamento pesado acontece server-side
   const sortedExpenses = [...expenses].sort((a, b) => 
     new Date(b.date).getTime() - new Date(a.date).getTime()
   );
@@ -107,12 +105,11 @@ export default async function ExpenseListServerFetch() {
         </ul>
       )}
       
-      {/* ✅ Live demo badge */}
       <div className="mt-8 p-4 bg-blue-50 border-2 border-dashed border-blue-200 rounded-xl">
-        <h3 className="font-bold text-blue-800 mb-2">🔍 DevTools Network:</h3>
+        <h3 className="font-bold text-blue-800 mb-2">🔍 DevTools:</h3>
         <p className="text-sm text-blue-700">
-          Veja que <strong>SEM fetch no client!</strong><br/>
-          Dados vieram server-side → HTML pronto
+          <strong>SEM fetch client-side!</strong><br/>
+          Dados server-side → HTML pronto ⚡
         </p>
       </div>
     </div>

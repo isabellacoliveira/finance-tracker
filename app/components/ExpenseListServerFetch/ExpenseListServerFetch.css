@@ -1,0 +1,65 @@
+/* Demo Server Fetch - mesmo CSS da lista original */
+.expense-list {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.expense-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.expense-list-header h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.expense-list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.expense-list-item {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Skeleton loading */
+.expense-list-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #6b7280;
+}
+
+.category-badge-alimentacao { background: linear-gradient(135deg, #f87171, #ef4444); }
+.category-badge-transporte { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.category-badge-lazer { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.category-badge-saude { background: linear-gradient(135deg, #10b981, #059669); }
+.category-badge-moradia { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.category-badge-outros { background: linear-gradient(135deg, #6b7280, #4b5563); }
+

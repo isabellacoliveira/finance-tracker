@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import type { Expense } from "../../types/expense";
 import { ExpenseForm } from "../ExpenseForm/ExpenseForm";
 import { ExpenseList } from "../ExpenseList/ExpenseList";
-import './ExpenseContainer.css';
+import './ExpenseContainerApi.css';
 
 const formatCurrency = (value: number) => {
   return new Intl.NumberFormat("pt-BR", {
@@ -13,12 +13,11 @@ const formatCurrency = (value: number) => {
   }).format(value);
 };
 
-export function ExpenseContainerApi() {
+export default function ExpenseContainerApi() {
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // ✅ Fetch da API real ao invés de localStorage
   useEffect(() => {
     fetch('/api/expenses')
       .then(res => res.json())
@@ -32,7 +31,6 @@ export function ExpenseContainerApi() {
       });
   }, []);
 
-  // ✅ POST novo gasto
   const handleAddExpense = async (newExpense: Omit<Expense, 'id'>) => {
     try {
       const response = await fetch('/api/expenses', {
@@ -50,7 +48,6 @@ export function ExpenseContainerApi() {
     }
   };
 
-  // ✅ DELETE via API
   const handleDelete = async (id: string) => {
     try {
       await fetch(`/api/expenses/${id}`, { method: 'DELETE' });
@@ -106,12 +103,11 @@ export function ExpenseContainerApi() {
           </div>
 
           <div className="expense-container-tips-card">
-            <h3 className="expense-container-tips-title">🔥 Funcionalidades reais:</h3>
+            <h3 className="expense-container-tips-title">🔥 Funcionalidades:</h3>
             <ul className="expense-container-tips-list">
-              <li>• ✅ API GET/POST/DELETE funcionando</li>
-              <li>• DevTools → veja requests reais!</li>
-              <li>• Refresh → dados persistem (estado API)</li>
-              <li>• Próximo: Server Actions (sem JS!)</li>
+              <li>• ✅ API GET/POST/DELETE</li>
+              <li>• DevTools → requests reais</li>
+              <li>• Refresh → dados persistem</li>
             </ul>
           </div>
         </div>

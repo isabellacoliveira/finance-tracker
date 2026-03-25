@@ -16,7 +16,7 @@
   background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: black;
   margin-bottom: 0.5rem;
   line-height: 1.2;
 }
@@ -71,7 +71,7 @@
 .expense-container-summary-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1f2937;
+  color: black;
   margin-bottom: 1rem;
 }
 
@@ -107,7 +107,7 @@
 .expense-container-tips-title {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #1f2937;
+  color: black;
   margin-bottom: 1rem;
 }
 
@@ -122,11 +122,11 @@
 
 .expense-container-tips-list li {
   font-size: 0.875rem;
-  color: #4b5563;
+  color: black;
 }
 
 .loading {
   padding: 2rem;
   text-align: center;
-  color: #6b7280;
+  color: black;
 }
