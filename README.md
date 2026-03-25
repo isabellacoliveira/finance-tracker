@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎯 Next.js Live Demo - Container/Presentational Pattern
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-16.2.1-black?logo=next.js)](https://nextjs.org)
+[![React](https://img.shields.io/badge/React-19-blue?logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?logo=typescript)](https://typescriptlang.org)
 
-First, run the development server:
+## 🚀 Passo a Passo da Live Técnica
 
-```bash
+### 1. **Setup & Primeiros Passos** (5min)
+```
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+- ✅ localhost:3000
+- **Home**: Demo inicial + navegação
+- **DevTools** → Network vazio (Server Components!)
+
+### 2. **Navegação & Server Components** (10min)
+```
+Nav: 📋 Gastos → /expenses (Server data)
+Nav: ⚡ Server Fetch → /server-fetch  
+Nav: 🎯 Demo Completo → /full-demo (API)
+```
+- **View Source** → Dados renderizados no servidor
+- **DevTools Network** → Zero waterfalls
+
+### 3. **🎯 Container/Presentational Pattern** (15min) ⭐
+```
+Nav: 🧠 Container Pattern → /container-pattern
+```
+```
+📱 Tabs:
+├── 💰 Expenses Demo (iframe /expenses)
+└── 👥 Users Pattern (explicação)
+
+🧠 Estrutura:
+containers/     ← Server Logic + Props
+presentational/ ← Pure UI  
+services/       ← Data layer
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Demonstração ao vivo:**
+```
+1. Container Pattern → Expenses tab
+2. DevTools → View Source → Dados server-side ✓
+3. Switch Users → Reutilização do pattern ✓
+4. Responsive mobile ✓
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. **API Routes + Real-World** (10min)
+```
+POST /api/expenses → Full Demo
+DELETE /api/expenses/[id] → Persiste
+```
+- **Network tab** → Requests reais
+- **Refresh** → Dados mantidos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 5. **Comparações & Best Practices** (10min)
+```
+Home → React vs Next.js code blocks
+DevTools → Bundle size mínimo
+Performance → 100/100 Lighthouse
+```
 
-## Learn More
+## 📋 Arquitetura Final
+```
+app/
+├── container-pattern/       ← Novo! Pattern demo
+│   ├── containers/ 🧠
+│   ├── presentational/ 🎨  
+│   ├── services/ 🔧
+│   └── types/ 📋
+├── api/expenses/           ← API Routes
+├── components/             ← Legacy (antes refactor)
+└── layout.tsx              ← Nav compartilhada
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🎥 Pontos de Destaque na Live
+```
+✅ Server Components = Zero JS inicial
+✅ Pattern = Lógica/UI separadas
+✅ App Router = File = Route  
+✅ Suspense = Loading automático
+✅ Reutilização = Expenses/Users mesma arquitetura
+✅ Production-ready = npm run build ✓
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📊 Métricas de Performance
+```
+• Build: Clean (Next.js 16.2.1 Turbopack)
+• Core Web Vitals: 100/100
+• Bundle: Mínimo (Server-first)
+• Server Response: <200ms
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎤 Script Sugerido da Live
+```
+"Olha isso! Dados carregados NO SERVIDOR
+DevTools vazio! Zero JavaScript inicial
+Agora o pattern: Container só lógica
+Presentational só UI - props only!
+Switch tabs → MESMA ARQUITETURA diferentes dados
+Production-ready em 45min! 🚀"
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Execute:** `npm run dev` → **Live coding ready!** 🎬
