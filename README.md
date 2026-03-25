@@ -1,106 +1,104 @@
-# 🎯 Next.js Live Demo - Container/Presentational Pattern
+# 🎬 Next.js Live Demo - Passo a Passo Completo
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.2.1-black?logo=next.js)](https://nextjs.org)
-[![React](https://img.shields.io/badge/React-19-blue?logo=react)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?logo=typescript)](https://typescriptlang.org)
+## 📋 AGENDA DA LIVE (45min)
 
-## 🚀 Passo a Passo da Live Técnica
+### **00:00 - 02:00** | Setup (npm run dev)
+```
+1. git clone / cd finance-tracker
+2. npm install
+3. npm run dev
+✓ localhost:3000
+```
+**Dizer:** "Projeto Next.js 16 App Router pronto em 30s!"
 
-### 1. **Setup & Primeiros Passos** (5min)
+### **02:00 - 07:00** | Home + Navegação (5min)
 ```
-npm install
-npm run dev
+1. localhost:3000 → Home
+2. Nav: 📋 Gastos (/expenses)
+3. DevTools → Network VAZIO!
+4. View Source → DADOS NO HTML!
 ```
-- ✅ localhost:3000
-- **Home**: Demo inicial + navegação
-- **DevTools** → Network vazio (Server Components!)
+**Demo:** Scroll → Cards server-rendered
+**Dizer:** "Zero JavaScript inicial = performance máxima!"
 
-### 2. **Navegação & Server Components** (10min)
+### **07:00 - 12:00** | Server Components (/server-fetch) (5min)
 ```
-Nav: 📋 Gastos → /expenses (Server data)
-Nav: ⚡ Server Fetch → /server-fetch  
-Nav: 🎯 Demo Completo → /full-demo (API)
+1. Nav: ⚡ Server Fetch
+2. 1.5s delay → Loading automático (Suspense)
+3. View Source → Lista completa!
 ```
-- **View Source** → Dados renderizados no servidor
-- **DevTools Network** → Zero waterfalls
+**Dizer:** "Next.js carrega dados NO SERVIDOR, React usa useEffect"
 
-### 3. **🎯 Container/Presentational Pattern** (15min) ⭐
+### **12:00 - 17:00** | API + Estado (/full-demo) (5min)
 ```
-Nav: 🧠 Container Pattern → /container-pattern
+1. Nav: 🎯 Demo Completo
+2. Adicionar gasto → POST /api/expenses
+3. DevTools Network → Request real!
+4. Refresh → Persiste!
 ```
-```
-📱 Tabs:
-├── 💰 Expenses Demo (iframe /expenses)
-└── 👥 Users Pattern (explicação)
+**Dizer:** "API Routes + estado real sem backend"
 
-🧠 Estrutura:
-containers/     ← Server Logic + Props
-presentational/ ← Pure UI  
-services/       ← Data layer
+### **17:00 - 30:00** | 🎯 CONTAINER/PRESENTATIONAL (13min) ⭐
 ```
+1. Nav: 🧠 Container Pattern
+2. Tab Expenses → iframe /expenses
+3. Abrir DevTools:
+   - Network: Server data (0 client fetches)
+   - View Source: HTML pronto
+4. Tab Users → Reutilização pattern
+```
+**Estrutura ao vivo:**
+```
+containers/ExpensesContainer.tsx ← Logic only
+presentational/ExpenseList.tsx    ← UI only  
+services/fetchExpenses.ts         ← Data
+```
+**Dizer:** "Lógica server-side → Props → UI pura!"
 
-**Demonstração ao vivo:**
+### **30:00 - 35:00** | Performance + Bundle (5min)
 ```
-1. Container Pattern → Expenses tab
-2. DevTools → View Source → Dados server-side ✓
-3. Switch Users → Reutilização do pattern ✓
-4. Responsive mobile ✓
+1. npm run build → Clean!
+2. DevTools → Bundle 30kb!
+3. Lighthouse → 100/100
 ```
+**Dizer:** "Server Components = Bundle mínimo!"
 
-### 4. **API Routes + Real-World** (10min)
+### **35:00 - 42:00** | Q&A + Responsive (7min)
 ```
-POST /api/expenses → Full Demo
-DELETE /api/expenses/[id] → Persiste
-```
-- **Network tab** → Requests reais
-- **Refresh** → Dados mantidos
-
-### 5. **Comparações & Best Practices** (10min)
-```
-Home → React vs Next.js code blocks
-DevTools → Bundle size mínimo
-Performance → 100/100 Lighthouse
-```
-
-## 📋 Arquitetura Final
-```
-app/
-├── container-pattern/       ← Novo! Pattern demo
-│   ├── containers/ 🧠
-│   ├── presentational/ 🎨  
-│   ├── services/ 🔧
-│   └── types/ 📋
-├── api/expenses/           ← API Routes
-├── components/             ← Legacy (antes refactor)
-└── layout.tsx              ← Nav compartilhada
+1. Mobile viewport → Responsive ✓
+2. F5 reload → Instantâneo
+3. Perguntas chat
 ```
 
-## 🎥 Pontos de Destaque na Live
+### **42:00 - 45:00** | Wrap-up (3min)
 ```
-✅ Server Components = Zero JS inicial
-✅ Pattern = Lógica/UI separadas
-✅ App Router = File = Route  
-✅ Suspense = Loading automático
-✅ Reutilização = Expenses/Users mesma arquitetura
-✅ Production-ready = npm run build ✓
-```
-
-## 📊 Métricas de Performance
-```
-• Build: Clean (Next.js 16.2.1 Turbopack)
-• Core Web Vitals: 100/100
-• Bundle: Mínimo (Server-first)
-• Server Response: <200ms
+"Resumo:
+• Server Components = Performance
+• Container/Presentational = Arquitetura
+• App Router = File=Route
+GitHub → Próximos passos!"
 ```
 
-## 🎤 Script Sugerido da Live
-```
-"Olha isso! Dados carregados NO SERVIDOR
-DevTools vazio! Zero JavaScript inicial
-Agora o pattern: Container só lógica
-Presentational só UI - props only!
-Switch tabs → MESMA ARQUITETURA diferentes dados
-Production-ready em 45min! 🚀"
+## 🎯 COMANDOS ÚTEIS
+```bash
+npm run dev      # Desenvolvimento
+npm run build    # Build production
+npm run start    # Production server
 ```
 
-**Execute:** `npm run dev` → **Live coding ready!** 🎬
+## 📱 DEMO ROUTES
+| Rota | Demo |
+|------|------|
+| `/` | Home |
+| `/expenses` | Server data |
+| `/server-fetch` | Async Server Component |
+| `/full-demo` | API + CRUD |
+| `/container-pattern` | **Pattern principal** |
+
+## 🎤 O QUE MOSTRAR NO DEVTOOLS
+1. **Network** → Vazio (Server Components)
+2. **View Source** → Dados renderizados
+3. **Performance** → Zero waterfalls
+4. **Lighthouse** → 100/100
+
+**Live Duration: 45min** | **Ready to go!** 🎥
